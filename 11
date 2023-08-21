@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  #output {
+    /* No need to set color here */
+  }
+</style>
+<script>
+function generateRandom() {
+  var adjectives = ["Happy", "Smart", "Gentle", "Brave", "Funny"];
+  var animals = ["Cat", "Dog", "Elephant", "Fox", "Bear"];
+  
+  var randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+  var randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+  
+  var result = randomAdjective + " " + randomAnimal;
+  
+  // Generate a random color
+  var randomColor = getRandomColor();
+  
+  // Apply the generated text and random color to the output element
+  document.getElementById("output").textContent = result;
+  document.getElementById("output").style.color = randomColor;
+}
+
+function getRandomColor() {
+  var letters = "0123456789ABCDEF";
+  var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];          
+  }
+  return color;
+}
+</script>
+</head>
+<body>
+<button onclick="generateRandom()">Generate (Adjective + Animal)</button>
+<p id="output"></p>
+</body>
+</html>
